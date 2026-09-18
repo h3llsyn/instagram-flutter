@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_cutecute/widgets/post_instagram.dart';
 import 'package:instagram_cutecute/widgets/stories.dart';
 
 class FeedPage extends StatelessWidget {
@@ -55,17 +56,16 @@ class FeedPage extends StatelessWidget {
                   ),
                   subtitle: Text('São Paulo, Brasil'),
                 ),
-                SizedBox(
-                  height: 330,
-                  width: double.infinity,
-                  child: ColoredBox(
-                    color: Colors.blue,
-                    child: Icon(
-                      Icons.flutter_dash, color:
-                    Colors.white, size: 130,
-                    ),
+                const SliverToBoxAdapter(
+                  child: PostInstagram(
+                    usuario: "flutter.dev", 
+                    local: "São Paulo, Brasil", 
+                    legenda: "Construindo interfaces incriveis com Flutter 💓", 
+                    cor: Colors.blue, 
+                    icone: Icons.flutter_dash, 
+                    curtidasInciais: 128
                   ),
-                ),
+                )
               ],
             ),
           ),
