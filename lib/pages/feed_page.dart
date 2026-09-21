@@ -1,74 +1,81 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_cutecute/utils/mensagem_util.dart';
 import 'package:instagram_cutecute/widgets/post_instagram.dart';
 import 'package:instagram_cutecute/widgets/stories.dart';
 
-class FeedPage extends StatelessWidget {
+class FeedPage  extends StatelessWidget{
   const FeedPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return SafeArea(
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
             floating: true,
             backgroundColor: Colors.white,
-            title: Text(
-              'Instagram',
+            title: const Text(
+              'InstaAula',
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 28,
-                fontWeight: FontWeight.bold
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic
               ),
             ),
             actions: [
               IconButton(
-                onPressed: (){},
-                icon: Icon(Icons.add_box_outlined)
+                onPressed: (){
+                  mostrarMensagem(context, 'Criar publicação');
+                }, 
+                icon: const Icon(Icons.add_box_outlined)
               ),
-              IconButton(
-                onPressed: (){},
-                icon: Icon(Icons.send)
+               IconButton(
+                onPressed: (){
+                  mostrarMensagem(context, 'Você não possui novas mensagens');
+                }, 
+                icon: const Icon(Icons.send_outlined)
               ),
+
             ],
           ),
+          const SliverToBoxAdapter(child: Stories()),
+          const SliverToBoxAdapter(child: Divider(height: 1,)),
+
           const SliverToBoxAdapter(
-            child: Stories(),
-          ),
-          const SliverToBoxAdapter(
-            child: Divider(height: 1,),
+            child: PostInstagram(
+              usuario: "flutter.dev", 
+              local: "São Paulo, Brasil", 
+              legenda: "Construindo interfaces incriveis com Flutter 💓", 
+              cor: Colors.blue, 
+              icone: Icons.flutter_dash, 
+              curtidasInciais: 128
+            ),
           ),
 
           const SliverToBoxAdapter(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: Colors.blue,
-                      child: Icon(Icons.flutter_dash, color: Colors.white,),
-                  ),
-                  title: Text(
-                    'flutter.dev',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold
-                    ),
-                  ),
-                  subtitle: Text('São Paulo, Brasil'),
-                ),
-                const SliverToBoxAdapter(
-                  child: PostInstagram(
-                    usuario: "flutter.dev", 
-                    local: "São Paulo, Brasil", 
-                    legenda: "Construindo interfaces incriveis com Flutter 💓", 
-                    cor: Colors.blue, 
-                    icone: Icons.flutter_dash, 
-                    curtidasInciais: 128
-                  ),
-                )
-              ],
+            child: PostInstagram(
+              usuario: "professor.mobile", 
+              local: "Osasco, Brasil", 
+              legenda: "Aula de desenvolvimento mobile concluida com sucesso", 
+              cor: Colors.deepPurple, 
+              icone: Icons.school, 
+              curtidasInciais: 94
             ),
           ),
+
+          const SliverToBoxAdapter(
+            child: PostInstagram(
+              usuario: "vitor.dev", 
+              local: "Carapicuiba, Brasil", 
+              legenda: "Grau e arte 💓", 
+              cor: Colors.teal, 
+              icone: Icons.code, 
+              curtidasInciais: 2
+            ),
+          ),
+
+          
         ],
       )
     );

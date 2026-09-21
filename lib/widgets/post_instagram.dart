@@ -106,7 +106,42 @@ class _PostInstagramState extends State<PostInstagram>{
                 icon: Icon(salvou ? Icons.bookmark: Icons.bookmark_border),               
               ),
             ],
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 14),
+            child: Text(
+              '$totalCurtidas curtidas', 
+              style: const TextStyle(
+                fontWeight: FontWeight.bold
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(14, 6, 14, 2),
+            child: Text.rich(
+              TextSpan(
+                children:[
+                  TextSpan(
+                    text: '${widget.usuario} ', 
+                    style: TextStyle(fontWeight: FontWeight.bold)
+                  ),
+                  TextSpan(text: widget.legenda)
+                ] 
+              )
+            ),
+          ),
+          const Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+            child: Text(
+              'Ver todos os comentários', 
+              style: TextStyle(
+                color: Colors.grey
+              ),
+            ),
+          ),
+          const Divider(),
+            
+
         ],
       );
 
