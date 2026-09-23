@@ -110,38 +110,32 @@ class _PostInstagramState extends State<PostInstagram>{
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 14),
             child: Text(
-              '$totalCurtidas curtidas', 
-              style: const TextStyle(
-                fontWeight: FontWeight.bold
+              '$totalCurtidas curtidas',
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(14, 6, 14, 4),
+            child: RichText(
+              text: TextSpan(
+                style: DefaultTextStyle.of(context).style,
+                children: [
+                  TextSpan(
+                    text: '${widget.usuario} ',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(text: widget.legenda),
+                ],
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(14, 6, 14, 2),
-            child: Text.rich(
-              TextSpan(
-                children:[
-                  TextSpan(
-                    text: '${widget.usuario} ', 
-                    style: TextStyle(fontWeight: FontWeight.bold)
-                  ),
-                  TextSpan(text: widget.legenda)
-                ] 
-              )
-            ),
-          ),
-          const Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+            padding: const EdgeInsets.fromLTRB(14, 0, 14, 12),
             child: Text(
-              'Ver todos os comentários', 
-              style: TextStyle(
-                color: Colors.grey
-              ),
+              'Ver todos os comentários',
+              style: TextStyle(color: Colors.grey.shade600),
             ),
           ),
-          const Divider(),
-            
-
         ],
       );
 

@@ -1,3 +1,7 @@
+
+
+
+
 import 'package:flutter/material.dart';
 
 class BuscarPage extends StatefulWidget {
@@ -43,8 +47,15 @@ class _BuscarPageState extends State<BuscarPage> {
               ),
             ),
             Expanded(
-              child: GridView.builder(
-                padding: EdgeInsets.all(4),
+              child: resultado.isEmpty
+                ? Center(
+                    child: Text(
+                      'Nenhum resultado para "$pesquisar"',
+                      style: const TextStyle(color: Colors.grey)
+                    )
+                  )
+                : GridView.builder(
+                padding: const EdgeInsets.all(4),
                 itemCount: resultado.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
